@@ -1,0 +1,42 @@
+﻿name: Deploy Hexo to GitHub Pages
+
+on:
+  push:
+    branches: [ main ] # 当向 blog-source 仓库的 main 分支推送代码时触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+ 
+      - name: Checkout Source
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # 获取所有历史记录
+
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # 使用 Node.js 18 LTS
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+   
+      - name: Install Dependencies
+        run: |
+          npm ci
+
+  
+      - name: Deploy to GitHub Pages
+        env:
+          GIT_USER:baorunton2
+          GIT_EMAIL: 2243925651@qq.com
+          DEPLOY_REPO: baoruntong2/baoruntong2.github.io 
+          DEPLOY_BRANCH: main
+        run: |
+          git config --global user.name "$GIT_USER"
+          git config --global user.email "$GIT_EMAIL"
+          hexo clean && hexo deploy
+          
