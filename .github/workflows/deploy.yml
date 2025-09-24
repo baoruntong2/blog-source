@@ -31,12 +31,11 @@ jobs:
   
       - name: Deploy to GitHub Pages
         env:
-          GIT_USER: baoruntong2
-          GIT_EMAIL: 2243925651@qq.com
-          DEPLOY_REPO: baoruntong2/baoruntong2.github.io 
-          DEPLOY_BRANCH: main
+          GIT_USER: baoruntong2 
+          GIT_EMAIL: 2243925651@qq.com 
+          DEPLOY_REPO: baoruntong2/baoruntong2.github.io # 替换为你的 Pages 仓库名
+          DEPLOY_BRANCH: main # 部署到的分支
         run: |
           git config --global user.name "$GIT_USER"
           git config --global user.email "$GIT_EMAIL"
           hexo clean && hexo deploy
-          
