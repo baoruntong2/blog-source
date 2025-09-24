@@ -27,6 +27,7 @@ jobs:
       - name: Install Dependencies
         run: |
           npm ci
+          npm install -g hexo-cli
 
   
       - name: Deploy to GitHub Pages
