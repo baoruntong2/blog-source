@@ -31,7 +31,7 @@ jobs:
   
       - name: Deploy to GitHub Pages
         env:
-          GIT_USER:baoruntong2
+          GIT_USER: baoruntong2
           GIT_EMAIL: 2243925651@qq.com
           DEPLOY_REPO: baoruntong2/baoruntong2.github.io 
           DEPLOY_BRANCH: main
